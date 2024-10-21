@@ -19,6 +19,13 @@ type TestStruct struct {
 	Nested     NestedStruct
 }
 
+// TestCloneUsingGob tests CloneUsingGob by ensuring that:
+// - The cloning function does not return an error when cloning a valid source
+//   struct to a valid destination struct.
+// - The cloning function returns an error when cloning a nil source struct to a
+//   valid destination struct.
+// - The cloning function returns an error when cloning a valid source struct to
+//   a nil destination struct.
 func TestCloneUsingGob(t *testing.T) {
 	source := &TestStruct{
 		Name:  "Test",
@@ -64,6 +71,13 @@ func TestCloneUsingGob(t *testing.T) {
 	}
 }
 
+// TestCloneUsingJson tests CloneUsingJson by ensuring that:
+// - The cloning function does not return an error when cloning a valid source
+//   struct to a valid destination struct, and that the destination matches the source.
+// - The cloning function returns an error when cloning a nil source struct to a
+//   valid destination struct.
+// - The cloning function returns an error when cloning a valid source struct to
+//   a nil destination struct.
 func TestCloneUsingJson(t *testing.T) {
 	source := &TestStruct{
 		Name:  "Test",
@@ -108,6 +122,10 @@ func TestCloneUsingJson(t *testing.T) {
 	}
 }
 
+// BenchmarkCloneUsingGob benchmarks the performance of the CloneUsingGob function.
+// It sets up a source TestStruct with predefined values and runs the benchmark
+// in parallel, cloning the source struct to a destination struct repeatedly.
+// The benchmark fails if CloneUsingGob returns an error during the cloning process.
 func BenchmarkCloneUsingGob(b *testing.B) {
 	source := &TestStruct{
 		Name:  "Benchmark Test",
@@ -135,6 +153,10 @@ func BenchmarkCloneUsingGob(b *testing.B) {
 	})
 }
 
+// BenchmarkCloneUsingJson benchmarks the performance of the CloneUsingJson function.
+// It sets up a source TestStruct with predefined values and runs the benchmark
+// in parallel, cloning the source struct to a destination struct repeatedly.
+// The benchmark fails if CloneUsingJson returns an error during the cloning process.
 func BenchmarkCloneUsingJson(b *testing.B) {
 	source := &TestStruct{
 		Name:  "Benchmark Test",
