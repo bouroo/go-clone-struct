@@ -1,4 +1,4 @@
-package goclonestruct
+package clone
 
 import (
 	"bytes"

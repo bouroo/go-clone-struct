@@ -1,4 +1,4 @@
-package goclonestruct
+package clone
 
 import (
 	"testing"
@@ -20,12 +20,12 @@ type TestStruct struct {
 }
 
 // TestCloneUsingGob tests CloneUsingGob by ensuring that:
-// - The cloning function does not return an error when cloning a valid source
-//   struct to a valid destination struct.
-// - The cloning function returns an error when cloning a nil source struct to a
-//   valid destination struct.
-// - The cloning function returns an error when cloning a valid source struct to
-//   a nil destination struct.
+//   - The cloning function does not return an error when cloning a valid source
+//     struct to a valid destination struct.
+//   - The cloning function returns an error when cloning a nil source struct to a
+//     valid destination struct.
+//   - The cloning function returns an error when cloning a valid source struct to
+//     a nil destination struct.
 func TestCloneUsingGob(t *testing.T) {
 	source := &TestStruct{
 		Name:  "Test",
@@ -72,12 +72,12 @@ func TestCloneUsingGob(t *testing.T) {
 }
 
 // TestCloneUsingJson tests CloneUsingJson by ensuring that:
-// - The cloning function does not return an error when cloning a valid source
-//   struct to a valid destination struct, and that the destination matches the source.
-// - The cloning function returns an error when cloning a nil source struct to a
-//   valid destination struct.
-// - The cloning function returns an error when cloning a valid source struct to
-//   a nil destination struct.
+//   - The cloning function does not return an error when cloning a valid source
+//     struct to a valid destination struct, and that the destination matches the source.
+//   - The cloning function returns an error when cloning a nil source struct to a
+//     valid destination struct.
+//   - The cloning function returns an error when cloning a valid source struct to
+//     a nil destination struct.
 func TestCloneUsingJson(t *testing.T) {
 	source := &TestStruct{
 		Name:  "Test",
